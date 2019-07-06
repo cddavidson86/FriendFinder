@@ -58,5 +58,6 @@ module.exports = function(app) {
         console.log("New user added");
         console.log(userData);
         res.json(bestMatch);
+        debugger;
     });
 };
