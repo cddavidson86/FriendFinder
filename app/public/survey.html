@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friend Survey</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container">
+       
+                <div class="row">
+                    <div class="col-lg-12">
+        
+                        <!-- Friends Page -->
+                        <div class="panel panel-default">
+        
+                            <div class="panel-heading">
+                                <h1 class="panel-title" style="text-align: center;"><strong>Friend Finder Survey<strong></h1>
+                            </div>
+                            <hr>
+                            <div class="panel-body">
+                                <form role="form">
+        
+                                <h3><strong>About You</strong></h3>
+                                <h5>Name (Required)</h5>
+                                <input type="text" name="" id="name" class="form-control" required >
+        
+                                <h3>Link to Photo Image (Required)</h3>
+                                <input type="text" name="" id="photo" class="form-control" required >
+                                <hr>
+        
+                                <h3><strong>Survey Questions</strong></h3>
+                                <hr>
+        
+                                <h5>You want a friend who is always ready to help you.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q1">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+        
+                                <h5>Strong moral views are important qualities for a friend.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q2">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+        
+                                <h5>You like friends who are quirky.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q3">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+        
+                                <h5>You like friends who are spontaneous.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q4">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+        
+                                <h5>You value friends who are loud and funny instead of quiet and shy.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q5">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+                                <h5>You want a friend who would rather read a book than go on an adventure.  </h5>
+                                <select data-placeholder="" class="chosen-select" id="q9">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+                                <h5>You like friends who are not afraid to disagree with you.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q10">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+                                <h5>You need a friend who loves being outdoors.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q6">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+                                <h5>Your idea of a fun get together involves going to sporting events.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q7">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+                                <h5>You would much rather go to a restaurant and a movie than get together with friends and play games.</h5>
+                                <select data-placeholder="" class="chosen-select" id="q8">
+                                    <option value=""></option>
+                                    <option selected="selected" value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
+        
+                                        <br>
+                                        <br>
+        
+                                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+                </div>
+</body>
+</html>
