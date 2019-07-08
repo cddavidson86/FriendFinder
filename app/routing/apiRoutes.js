@@ -1,6 +1,7 @@
 var friends = require("../data/friends.js");
 
 module.exports = function(app) {
+    
     app.get("/api/friends", function(req, res) {
         res.json(friends);
     });
@@ -58,6 +59,5 @@ module.exports = function(app) {
         console.log("New user added");
         console.log(userData);
         res.json(bestMatch);
-        debugger;
     });
 };
