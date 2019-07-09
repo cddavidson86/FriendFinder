@@ -1,0 +1,24 @@
+{
+  "name": "FriendFinder",
+  "version": "1.0.0",
+  "description": "Friend Finder app that shows the power of using Node and Express with jQuery and AJAX. It runs through an API database to find the most compatible friend while adding a new friend to the database.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cddavidson86/FriendFinder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cddavidson86/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/cddavidson86/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
