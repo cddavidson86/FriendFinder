@@ -1,63 +1,64 @@
-var friends = require("../data/friends.js");
 
-module.exports = function(app) {
-    
-    app.get("/api/friends", function(req, res) {
-        res.json(friends);
-    });
+var friends = require('../data/friends.js');
 
-    app.post("/api/friends", function(req, res) {
+module.exports = function (app) {
+  // //api path to get the friends data, responds with a json object (an array of friends). Activated on both html pages
+  app.get('/api/friends', function (req, res) {
+      res.json(friends);
+  });
+
+  // *** Updates an array of friends "database" array and sends back the json form of the most compatible new friend
+  app.post('/api/friends', function (req, res) {
+      // newFriend is the user that filled out the survey
+      var newFriend = req.body;
+      console.log(newFriend)
+
+      // compute best match from scores
+      var bestMatch = {};
+
+    //   for(var i = 0; i < newFriend.scores.length; i++) {
+    //       newFriend.scores[i] = parseInt(newFriend.scores[i]);
+    //   }
+    for(var i = 0; i < newFriend.scores.length; i++) {
+        if(newFriend.scores[i] == "1 (Strongly Disagree)") {
+          newFriend.scores[i] = 1;
+        } else if(newFriend.scores[i] == "5 (Strongly Agree)") {
+          newFriend.scores[i] = 5;
+        } else {
+          newFriend.scores[i] = parseInt(newFriend.scores[i]);
+        }
+      }
+      // compare the scores of newFriend with the scores of each friend in the database and find the friend with the smallest difference when each set of scores is compared
+
+      var bestMatchIndex = 0;
+
+      //greatest score difference for a question is 4, therefore greatest difference is 4 times # of questions in survey
+      var bestMatchDifference = 40;
+
+      for(var i = 0; i < friends.length; i++) {
         var totalDifference = 0;
-        var bestMatch = {
-            name: "",
-            photo: "",
-            friendDifference: 1000
-        };
-        var userData = req.body;
-        var userName = userData.name;
-        var userScores = userData.scores;
 
-        var b = userScores.map(function(item) {
-            return parseInt(item, 10);
-        });
-
-        userData = {
-            name: req.body.name,
-            photo: req.body.photo,
-            scores: b
-        };
-
-        console.log("name: " + userName);
-        console.log("User score: " + userScores);
-
-        var sum = b.reduce((a, b) => a + b, 0);
-        console.log("Sum of users score " + sum);
-        console.log("Best match friend diff " + bestMatch.friendDifference);
-        console.log("--------------------");
-
-        for (let i = 0; i < friends.length; i++) {
-            console.log(friends[i].name);
-            totalDifference = 0;
-            console.log("Total diff " + totalDifference);
-            console.log("Best match friend diff " + bestMatch.friendDifference);
-
-            var bfriendScore = friends[i].scores.reduce((a, b) => a + b, 0);
-            console.log("Total friend score " + bfriendScore);
-            totalDifference += Math.abs(sum - bfriendScore);
-            console.log("-----------------------------> " + totalDifference);
-            
-            if (totalDifference <= bestMatch.friendDifference) {
-                bestMatch.name = friends[i].name;
-                bestMatch.photo = friends[i].photo;
-                bestMatch.friendDifference = totalDifference;
-            }
-            console.log(totalDifference + " Total Difference");
+        for(var index = 0; index < friends[i].scores.length; index++) {
+          var differenceOneScore = Math.abs(friends[i].scores[index] - newFriend.scores[index]);
+          totalDifference += differenceOneScore;
         }
 
-        console.log(bestMatch);
-        friends.push(userData);
-        console.log("New user added");
-        console.log(userData);
-        res.json(bestMatch);
-    });
+        // if the totalDifference in scores is less than the best match so far
+        // save that index and difference
+        if (totalDifference < bestMatchDifference) {
+          bestMatchIndex = i;
+          bestMatchDifference = totalDifference;
+        }
+      }
+
+      // the best match index is used to get the best match data from the friends index
+      bestMatch = friends[bestMatchIndex];
+
+      // Put new friend from survey in "database" array
+      friends.push(newFriend);
+
+      // return the best match friend
+      res.json(bestMatch);
+  });
+
 };
