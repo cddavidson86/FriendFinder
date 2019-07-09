@@ -53,6 +53,7 @@ module.exports = function (app) {
 
       // the best match index is used to get the best match data from the friends index
       bestMatch = friends[bestMatchIndex];
+      console.log(bestMatch);
 
       // Put new friend from survey in "database" array
       friends.push(newFriend);
