@@ -1,4 +1,4 @@
-# friend-finder-node-and-express-server
+# friend-finder
 
 Friend Finder app demonstrating Node and Express with jQuery and AJAX.
 Overall purpose is a web app designed to help find a compatible friend.
